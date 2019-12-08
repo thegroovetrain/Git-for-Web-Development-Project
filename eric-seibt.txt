@@ -1,0 +1,174 @@
+https://codepen.io/thegroovetrain/pen/zYxGbJK?editors=1100
+
+1. What is Semantic HTML? 
+    Semantic HTML attempts to clearly describe its meaning to both the browser and the developer.
+
+2. What is HTML used for? 
+    Document markup. Generally it is used for web pages.
+
+3. What is an attribute and where do we put it? 
+    An attribute provides additional information about HTML elements. Attributes are always specified in the start tag using name/value pairs in the format <... name="value" ...>.
+    
+4. What is the h1 tag used for? How many times should I use it on a page?
+    The h1 is the most important heading, and is effectively the semantic title for the page for SEO purposes. 
+    You should use it exactly once unless you don't care about SEO for some reason, or your specific application would work better using more than one versus not doing so.
+    These instances are very, very rare; and in fact I have never come across one. But it is technically true.
+
+5. Name two tags that have required attributes
+    <a ...>...</a> requires either "href" or "name"
+    <img> requires 'src'
+
+6. What do we put in the head of our HTML document? 
+    The head usually contains:
+    -<title>...</title> element
+    -<meta> elements (such as <meta charset='utf-8'> for character encoding)
+    -<link>s to stylesheets
+    -<script>s that don't need to be called in the footer or otherwise lazy-loaded.
+
+7. What is an id? 
+    id is an attribute that specifies a unique identifier for an HTML element, which can then be used by CSS and javascript to style or do things with it.
+
+8. What elements can I add an id to? 
+    all elements can have an ID
+
+9. How many times can I use the same id on a page? 
+    Once; although if you do not care about validation, technically most browsers support it in quirks mode until you start getting crazy with javascript.
+
+10. What is a class? 
+    similar to an ID in that it provides an identifier within the DOM that can be targeted through CSS and javascript, classes are not unique and can be reused throughout a page.
+
+11. What elements can I add a class to? 
+    all elements can have a class
+
+12. How many times can I use the same class on a page? 
+    As many times as you want
+
+13. How do I get my link to open in a new tab?
+    <a href="..." target="_blank">...</a>
+
+14. What is the alt attribute used for? 
+    specifies alternate text for an element if for some reason a user cannot view it (such as a slow connection, error in src attribute, or they are using a screen reader).
+    applicable to <img>, <area> and <input type="image">.
+
+15. How do I reference an id?
+    In CSS, #id { ... }
+
+16. What is the difference between a section and a div
+    <section> represents a generic section of a document or application and should appear as an entry in an outline of the page.
+    <div> does not convey any semantic meaning, aside from any found in class, lang or title attributes.
+    both are containers. if your container is only useful for applying styles to its children, then it should be a div.
+
+17. What is CSS used for? 
+    styling.
+
+18. How to we select an element? Example - every h2 on the page
+    h2 { ... }
+
+19. What is the difference between a class and an id? - Give me an example of when I might use each one
+    -The only difference is that classes may be reused (without triggering quirks mode or breaking javascript at least) and IDs may not.
+    -A good candidate for an ID is an element that will appear exactly once on each page AND would not otherwise be covered by a semantic tag.
+     (<header> and <main> are used now instead of <div id="masthead"> or <div id="main">, for example).
+    -You would use a class when you need similar styles and/or behavior applied to multiple elements.
+
+20. How do we select classes in CSS?
+    .class { ... }
+
+21. How do we select a p element with a single class of “human””?
+    p.human { ... }
+
+22. What is a parent child selector? When would this be useful? 
+    There is no such thing as a parent selector and this is not being discussed by w3c.
+    You might be referring to the element > element selector (child selector), which is used to select elements with a specific parent.
+    i.e. div > p selects all p's whose direct parent is a div.
+    This is stricter than a descendant selector (div p) which would select all p's with a div parent anywhere in the DOM.
+    It is useful when you need stricter targeting.
+
+23. How do you select all links within a div with the class of sidebar?
+    div.sidebar a { ... }
+
+24. What is a pseudo selector?
+    Pseudo-selectors include pseudo-classes and pseudo-elements.
+    Pseudo-classes (such as a:hover) define a special state of an element.
+    Pseudo-elements (such as p::first-line) is used to style specified parts of an element.
+
+25. What do we use the change the spacing between lines?
+    line-height (although there are multiple ways to accomplish this)
+
+26. What do we use to change the spacing between letters?
+    letter-spacing
+
+27. What do we use to to change everything to CAPITALS? lowercase? Capitalize?
+    text-transform: uppercase|lowercase|capitalize;
+
+28. How do I add a 1px border around my div that is dotted and black?
+    div { border: dotted 1px black; }
+
+29. How do I select everything on the page? 
+    * { ... }
+
+30. How do I write a comment in CSS?
+    /* like this */
+
+31. How do I find out what file I am in, when I am using the command line? 
+    do you mean directory? pwd
+
+32. Using the command line - how do I see a list of files/folders in my current folder?
+    ls
+
+33. How do I remove a file via the command line? Why do I have to be careful with this? 
+    rm filename
+    you can delete anything with this command, including system files. be *very* careful.
+
+34. Why should I use version control? 
+    Test branches, rolling back to a previous version, tracking changes within files. Its like saving, but better.
+
+35. How often should I commit to github?
+    This is subjective, however the best answer is "often." If your version control comment is longer than one or two sentences, you probably aren't committing often enough.
+
+36. What is the command we would use to push our repo up to github? 
+    git push
+
+37. Walk me through Lambda's git flow. 
+    1 Fork repo
+    2 Add TL as contributor
+    3 Clone repo
+    4 Branch repo (git checkout -b 'firstName-lastName')
+    5 Submit pull request onto the new branch.
+        - student fork master is the base 
+        - add TL as reviewer
+    6 TL will count it as done by merging back into master student fork.
+
+Stretch Questions
+
+    1. What is the difference between an inline element and a block element?
+        Block-level elements always start on a new line and take up the full width available (by default).
+        Inline-level elements do not start on a new line and only take up as much space as necessary.
+  
+    2. What happens when an element is positioned absolutely? 
+        Absolute positioning places an element at a specific pixel coordinate.
+        Top, right, bottom and left properties specify offsets from the edges of the element's containing block.
+        If the element has margins, they are added to the offset.
+
+    3. How do I make an element take up only the amount of space it needs but also have the ability to give it a width?
+        display: inline-block;
+
+    4. Name 3 elements that are diplay block by default, 2 elements that are display inline by default and 1 element that is display inline-block by default
+        Block:
+            div
+            p
+            blockquote
+        Inline:
+            span
+            a
+        Inline-Block:
+            img
+
+    5. In your own words, explain the box model. What is the fix for the box model? 
+        the box model is the set of rules that decide how an element's sizes are computed as you add padding, borders and margins to the content.
+        By default, the specification is box-sizing: content-box. It preserves the declared width and height of an element's contents, so padding and borders *add*
+        to an element's width and height as interpreted by the browser. An element with 100px width, 20px padding and 5px borders will add this together and you end up
+        with 125px total. This can be unintuitive, so box-sizing: border-box exists. With this, padding and borders are included in the element's width and height.
+        So, the same example would be padding of 20px and borders of 5px, which is all together 100px by 100px.
+
+        It is subjective whether this is something that is wrong that needs to be fixed. I would argue that both models are different means to an end and have their place
+        depending on the application.
